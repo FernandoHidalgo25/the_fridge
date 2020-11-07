@@ -9,9 +9,9 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
-gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash'
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
 group :development do
   gem 'rufo'

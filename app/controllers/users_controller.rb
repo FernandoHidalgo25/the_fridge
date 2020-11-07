@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         redirect to '/users/new'
       else
         @user = User.create(:username => params[:username], :password => params[:password])
-        session[:user_id] = @user.id
+        session[:username] = @user.id
         redirect '/food_groups'
       end
       # redirect "/users"
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     get '/users/login' do
     #   @error_message = session[:error]
     #   session.delete :error
-      if session[:user_id]
+      if logged_in? # session[:username]
         redirect "/users/#{current_user.id}"
       else
         erb :"users/login"
@@ -41,8 +41,8 @@ class UsersController < ApplicationController
     post '/users/login' do
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        #binding.pry
+        session[:username] = @user.username
+       binding.pry
         redirect "/users/#{current_user.id}"
       else
         @error_message = "Invalid Login. Please Try Again"
@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     end
   
     get '/logout' do
-      if session[:user_id] != nil
+      if session[:username] != nil
         session.destroy
         redirect '/login'
       else

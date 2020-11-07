@@ -30,22 +30,35 @@ class FoodGroupsController < ApplicationController
   # GET: /food_groups/5
   get "/food_groups/:id" do
     if logged_in? && current_user.food_groups.include?(FoodGroup.find(params[:id]))
+     
       @food_group = FoodGroup.find(params[:id])
     else
+      binding.pry
         redirect "/food_groups"
     end
-    erb :"/food_groups/show"
+   # erb :"/food_groups/show"
   end
 
   # GET: /food_groups/5/edit
+  # get "/food_groups/:id/edit" do
+  #   #@user = User.find(params[:id])
+  #   #binding.pry
+  #   if logged_in?# && current_user.food_groups.include?(FoodGroup.find(params[:id]))
+  #    #if current_user.food_groups.find(params[:id])
+  #     @food_group = FoodGroup.find(params[:id])
+  #     erb :"/food_groups/edit"
+  #   else 
+  #     redirect_if_not_logged_in
+  #   end
+  # end
+
   get "/food_groups/:id/edit" do
-    @user = User.find(params[:id])
-    #binding.pry
-    if logged_in? && current_user.food_groups.include?(FoodGroup.find(params[:id]))
-     #if current_user.food_groups.find(params[:id])
-      @food_group = FoodGroup.find(params[:id])
-      erb :"/food_groups/edit"
-    end
+      if !logged_in?
+        redirect_if_not_logged_in
+      else
+        @food_group = FoodGroup.find(params[:id])
+        erb :"/food_groups/edit"
+      end
   end
 
   # PATCH: /food_groups/5
