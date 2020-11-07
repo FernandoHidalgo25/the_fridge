@@ -1,0 +1,14 @@
+Welcome to your food groups and foods viewing page, <%= @user.username %>.
+<br>
+<br>
+<br>
+<% @user.food_groups.each do |food_group| %>  
+Food Group Name: <a href="/food_groups/<%= food_group.id %>"> <%= food_group.name %> </a>
+<br>
+<br>
+<% end %>
+
+    <a href="/food_groups/new">Add A New Food Group</a>
+   
+
+<br>

@@ -1,0 +1,19 @@
+<h1>Food Groups index page</h1>
+<h2> These are all of your food cases: </h2>
+<% @food_groups.each do |food_group| %>
+<h3>Food Group Name: <%= food_group.name %></h3>
+<br />
+<table>
+  <a href="/food_groups/<%= food_group.id %>"> View Group Contents</a>
+  <br>
+  <a href="/food_groups/<%= food_group.id %>/edit"> Edit Group Name</a>
+  <br>
+  <a href="/food_groups/<%= food_group.id %>"> Delete Group</a>
+ 
+  </table>
+  <br />
+  <br />
+<% end %>
+<p>
+<a  href="/food_groups/new">New Food Group</a>
+</p>

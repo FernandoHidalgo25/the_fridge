@@ -1,0 +1,32 @@
+<h1>Food Groups show page</h1>
+<br>
+
+
+<h2><%= @food_group.name %> Food Group</h2>
+
+
+  <h3>
+    <img  src="../images/foodgroup.jpg" height="35">
+    Food in group
+    <img  src="../images/foodgroup.jpg" height="35">
+  </h3>
+  <% @food_group.foods.each_with_index do |food, index| %>
+  <%= index + 1 %>.
+<a href="/foods/<%= food.id%>"> <h4><%= food.name %></h4>
+  
+  <br />
+  <br />
+  <% end %>
+
+  <p>
+    <a href="/food_groups/<%=@food_group.id%>/edit">Edit This Food Group Name</a>
+    <br />
+   
+    <a href="/food_groups/<%=@food.id%>/foods/new">Add A New food</a>
+   
+    <br />
+    <a href="/food_groups"> Your Food Groups</a>
+  </p>
+
+  <br />
+  <br />

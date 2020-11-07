@@ -1,0 +1,38 @@
+<h2>
+<img  src="../images/foodgroup.jpg" height="35">
+<%= @food.name %> Food
+ <img  src="../images/foodgroup.jpg" height="35">
+</h2>
+<br />
+Food Manufacturer: <span><%= @food.manufacturer %></span>
+<br />
+Food Condition: <span><%= @food.condition %></span>
+<br />
+Food Body: <span><%= @food.body %>g</span>
+<br />
+Food Shaft: <span><%= @food.shaft %></span>
+<br />
+Food Flight: <span><%= @food.flight %></span>
+<br />
+<br />
+<table>
+
+  <a href="/foods/<%= @food.id %>/edit" class="button"> Edit </a>
+  <br>
+
+<form method="POST" action="/foods/<%= @food.id %>/delete" >
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Food">
+</form>
+  
+
+</table>
+<br />
+<br />
+<p>
+<a href="/food_groups/<%= @food.food_group_id %>">Back to your <%= @food.food_group.name %> group</a>
+<br />
+<a href="/food_groups"> Back to all your food group</a>
+</p>
+<br />
+<br />

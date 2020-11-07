@@ -1,0 +1,49 @@
+<h1>Foods edit page</h1>
+<h2>
+
+  <img  src="../../images/foodgroup.jpg" height="35">
+  Edit Your Food <%= @food.name %>
+  <img  src="../../images/foodgroup.jpg" height="35">
+  </h2>
+<span style="color:red;">
+  <%= @error_message %>
+  </span>
+  <br />
+<form action="/foods/<%= @food.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT" />
+  <% @food.errors.full_messages.each do |msg| %>
+    <p style="color:red;"><%= msg %></p>
+  <% end %>
+  <label > Food Name:</label>
+  <input type="text" name="name" value="<%= @food.name %>">
+  <br />
+  <br />
+  <label > Food Brand: </label>
+  <input type="text" name="brand" value="<%= @food.brand %>"> <br />
+  <br />
+  <label> Food Condition: </label>
+  <input type="text" name="condition" value="<%= @food.condition %>"> <br />
+  <br />
+  <label> Food Body/Weight in grams: </label>
+  <input type="text" name="body" value="<%= @food.body %>"> <br />
+  <br />
+  <label> Food Shaft: </label>
+  <input type="text" name="shaft" value="<%= @food.shaft %>"> <br /> 
+  <br />  
+  <label> Food Flight: </label>
+  <input type="text" name="flight" value="<%= @food.flight %>"> <br />
+  <br /><br />
+  <label> Case in which you find this group </label>
+  <select name="food_group_id">
+    <% current_user.food_groups.each do |food_group| %>
+      <option value="<%= food_group.id %>"<% if food_group.id == @food.food_group_id %> selected="selected"<% end %>><%= food_group.name %></option>
+    <% end %>
+  </select>
+  <br /><br />
+<table>
+  <input type="submit" value="Update">
+</form>
+<form action="/foods/<%= @food.id %>" method="GET">
+  <input type="submit" value="Cancel">
+</form>
+</table>

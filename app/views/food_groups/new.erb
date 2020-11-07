@@ -1,0 +1,23 @@
+<h1>Food Group New</h1>
+<h2>Add a Food Group</h2>
+<table>
+<span style="color:red;">
+  <%= @error_message %>
+  </span>
+  <br />
+<form action="/food_groups" method="POST">
+  <label> Group Name </label>
+  <input type="text" name="name" value="<%= @food_groups.name %>"> <br />
+  <input type="submit" value="Create">
+</form>
+<br />
+  <a href="/food_groups"> Create New Food Group </a>
+  
+<form action="/food_groups" method="GET">
+  <input type="submit" value="Cancel">
+</form>
+</table>
+
+<p>
+<a href="/food_groups"> Your Food Groups</a>
+</p>

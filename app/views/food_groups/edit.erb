@@ -1,0 +1,23 @@
+<h1>Foodgroups Edit Page</h1>
+<h2>Edit Your Food Group <%= @food_group.name %></h2>
+
+<table>
+<span style="color:red;">
+  <%= @error_message %>
+  </span>
+  <br />
+<form action="/food_group/<%= @food_group.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH" id="hidden">
+  <% @food_group.errors.full_messages.each do |msg| %>
+    <h3><%= msg %></h3>
+  <% end %>
+  <label> Case Name: </label>
+  <input type="text" name="name" value="<%= @food_group.name %>"> <br />
+<br />
+  <input type="submit" value="Update">
+</form>
+<form action="/food_group/<%= @food_group.id %>" method="GET">
+  <input type="submit" value="Cancel">
+</form>
+</table>
+  <p><a href="/food_group">Back to Your Groups</a></p>

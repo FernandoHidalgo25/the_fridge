@@ -1,0 +1,30 @@
+<h1>Food new page</h1>
+<h2>Create a New Food Group</h2>
+
+<div class="flex-container">
+<form action="/food_groups/<%= @food_group.id %>/foods" method="POST">
+  <% @food_group.errors.full_messages.each do |msg| %>
+    <p style="color:red;"><%= msg %></p>
+  <% end %>
+<span style="color:red;">
+  <%= @error_message %>
+  </span>
+  <br />
+    <label> Food Name: </label>
+  <input type="text" name="name" value="<%= @food.name %>"> <br />
+    <label> Food Brand: </label>
+  <input type="text" name="brand" value="<%= @food.brand %>"> <br />
+    <label> Food Condition: </label>
+  <input type="text" name="condition" value="<%= @food.condition %>"> <br />
+    <label> Food Body: </label>
+  <input type="text" name="body" value="<%= @food.body %>"> <br />
+    <label> Food Expiration: </label>
+  <input type="text" name="expiration" value="<%= @food.expiration %>"> <br />
+    <label> Food Quality: </label>
+  <input type="text" name="quality" value="<%= @food.quality %>"> <br />
+</div>
+  <input type="submit" value="Create">
+</form>
+<form action="/food_groups/<%= @food_group.id %>" method="GET">
+  <input type="submit" value="Cancel">
+</form>
