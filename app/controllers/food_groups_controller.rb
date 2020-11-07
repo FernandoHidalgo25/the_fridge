@@ -6,7 +6,8 @@ class FoodGroupsController < ApplicationController
 
    # GET: /food_groups
    get "/food_groups" do
-    @food_groups = FoodGroup.all
+    @food_groups = current_user.food_groups.all
+    # @food_groups = FoodGroup.all
     erb :'/food_groups/index'
   end
 
@@ -29,14 +30,16 @@ class FoodGroupsController < ApplicationController
 
   # GET: /food_groups/5
   get "/food_groups/:id" do
+    # binding.pry
     if logged_in? && current_user.food_groups.include?(FoodGroup.find(params[:id]))
      
       @food_group = FoodGroup.find(params[:id])
+    
     else
-      binding.pry
+      #binding.pry
         redirect "/food_groups"
     end
-   # erb :"/food_groups/show"
+    erb :"/food_groups/show"
   end
 
   # GET: /food_groups/5/edit
@@ -62,7 +65,7 @@ class FoodGroupsController < ApplicationController
   end
 
   # PATCH: /food_groups/5
-  patch "/food_groups/:id" do
+  patch "/food_group/:id" do
     @food_group = current_user.food_groups.find(params[:id])
     if @food_group.update(params.except(:id, :_method))
       redirect "/food_groups/#{@food_group.id}"

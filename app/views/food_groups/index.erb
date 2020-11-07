@@ -9,7 +9,12 @@
   <a href="/food_groups/<%= food_group.id %>/edit"> Edit Group Name</a>
   <br>
   <a href="/food_groups/<%= food_group.id %>"> Delete Group</a>
- 
+
+  <form action="/food_groups/<%= food_group.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="DELETE">
+</form>
+
   </table>
   <br />
   <br />

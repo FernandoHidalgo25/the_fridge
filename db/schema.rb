@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20201026) do
   create_table "foods", force: :cascade do |t|
     t.string   "name"
     t.string   "condition"
-    t.string   "manufacturer"
+    t.string   "brand"
     t.string   "body"
-    t.string   "shaft"
-    t.string   "flight"
+    t.string   "expiration"
+    t.string   "quality"
     t.integer  "food_group_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

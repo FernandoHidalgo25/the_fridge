@@ -19,14 +19,15 @@ class FoodsController < ApplicationController
   
     # POST: /foods
     post "/food_groups/:food_group_id/foods" do
+      # binding.pry
       @food_group = current_user.food_groups.find(params[:food_group_id])
       @foods = @food_group.foods.new(params)
-      if params[:body].to_i.between?(18, 50) #&& params[:body].match(/^[1-9][0-9]?$|^50$/)
+      if  @foods #params[:body].to_i.between?(1, 50) #&& params[:body].match(/^[1-9][0-9]?$|^50$/)
         @foods.save
         redirect "/food_groups/#{ @food_group.id }"
       else
         redirect "/food_groups/#{@food_group.id}/foods/new"
-      end
+       end
     end
   
     # GET: /foods/5

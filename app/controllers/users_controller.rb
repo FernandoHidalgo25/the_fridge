@@ -39,11 +39,12 @@ class UsersController < ApplicationController
     end
   
     post '/users/login' do
+      # binding.pry
       @user = User.find_by(:username => params[:username])
       if @user && @user.authenticate(params[:password])
-        session[:username] = @user.username
-       binding.pry
-        redirect "/users/#{current_user.id}"
+        session[:user_id] = @user.id
+       #binding.pry
+        redirect "/users/#{@user.id}"
       else
         @error_message = "Invalid Login. Please Try Again"
         erb :'users/login'
@@ -88,11 +89,11 @@ class UsersController < ApplicationController
     end
   
     get '/logout' do
-      if session[:username] != nil
+      # if session[:username] != nil
         session.destroy
-        redirect '/login'
-      else
-        redirect '/'
-      end
+        redirect '/users/login'
+      #else
+        #redirect '/'
+      #end
     end
   end

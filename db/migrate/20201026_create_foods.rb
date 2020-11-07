@@ -5,8 +5,8 @@ class CreateFoods < ActiveRecord::Migration
         t.string :condition
         t.string :brand
         t.string :body
-        t.string :shaft
-        t.string :flight
+        t.string :expiration
+        t.string :quality
         t.integer :food_group_id
         t.timestamps null: false
       end
