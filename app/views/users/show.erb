@@ -1,6 +1,8 @@
+<center>
 Welcome to your food groups and foods viewing page, <%= @user.username %>.
 <br>
 <br>
+<img  src="../images/empty_fridge.png" height="250">
 <br>
 <% @user.food_groups.each do |food_group| %>  
 Food Group Name: <a href="/food_groups/<%= food_group.id %>"> <%= food_group.name %> </a>

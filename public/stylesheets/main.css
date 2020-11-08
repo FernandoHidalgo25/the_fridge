@@ -11,13 +11,13 @@
   }
   /* --- Welcome Page Styles --- */
   body {
-    background-color: rgb(212, 103, 0);
+    background-color: rgb(46, 138, 230);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
   }
   .wrapper {
-    background: rgb(75, 121, 118);
+    background: rgb(22, 214, 120);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -87,12 +87,12 @@ form input[type="submit"] {
   }
 
   form input:hover {
-    color: rgb(182, 118, 0);
+    color: rgb(22, 189, 235);
   }
 
   form input {
     text-decoration: none;
-    color: rgb(15, 70, 1);
+    color: rgb(19, 52, 220);
   }
 
 }
