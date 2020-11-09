@@ -7,7 +7,7 @@ class FoodGroupsController < ApplicationController
    # GET: /food_groups
    get "/food_groups" do
     @food_groups = current_user.food_groups.all
-    # @food_groups = FoodGroup.all
+    #@food_groups = FoodGroup.current_user
     erb :'/food_groups/index'
   end
 

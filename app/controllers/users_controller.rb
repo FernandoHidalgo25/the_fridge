@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       else
         @user = User.create(:username => params[:username], :password => params[:password])
         session[:username] = @user.id
-        redirect '/food_groups'
+        redirect '/users/login'
       end
       # redirect "/users"
     end

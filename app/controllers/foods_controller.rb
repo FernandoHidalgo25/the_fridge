@@ -32,7 +32,7 @@ class FoodsController < ApplicationController
   
     # GET: /foods/5
     get "/foods/:id" do
-        if current_user.foods.include?(Foodfind(params[:id]))
+        if current_user.foods.include?(Food.find(params[:id]))
             @food = current_user.foods.find(params[:id])
             erb :"/foods/show"
           else
